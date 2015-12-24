@@ -8,7 +8,7 @@ using Storylog.Models;
 namespace Storylog.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20151224034554_AddInitalEntities")]
+    [Migration("20151224062121_AddInitalEntities")]
     partial class AddInitalEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,7 +149,7 @@ namespace Storylog.Migrations
 
             modelBuilder.Entity("Storylog.Models.Project", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("Active");
@@ -167,7 +167,7 @@ namespace Storylog.Migrations
 
             modelBuilder.Entity("Storylog.Models.Story", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("CreatedBy");
@@ -184,7 +184,7 @@ namespace Storylog.Migrations
 
                     b.Property<int>("Priority");
 
-                    b.Property<Guid>("ProjectId");
+                    b.Property<long>("ProjectId");
 
                     b.Property<int>("Status");
 
@@ -196,7 +196,7 @@ namespace Storylog.Migrations
 
             modelBuilder.Entity("Storylog.Models.Task", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("CreatedBy");
@@ -211,7 +211,7 @@ namespace Storylog.Migrations
 
                     b.Property<int>("Status");
 
-                    b.Property<Guid>("StoryId");
+                    b.Property<long>("StoryId");
 
                     b.Property<string>("Title");
 

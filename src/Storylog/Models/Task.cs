@@ -8,7 +8,7 @@ namespace Storylog.Models
 {
     public class Task
     {
-        public Guid Id { get; set; }
+        public long Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int Status { get; set; }
@@ -17,7 +17,7 @@ namespace Storylog.Models
         public string ModifiedBy { get; set; }
         public DateTime ModifiedOn { get; set; }
 
-        public Guid StoryId { get; set; }
+        public long StoryId { get; set; }
 
         [ForeignKey("StoryId")]
         public Story Story { get; set; }

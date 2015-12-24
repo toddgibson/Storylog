@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Data.Entity.Migrations;
+using Microsoft.Data.Entity.Metadata;
 
 namespace Storylog.Migrations
 {
@@ -17,7 +18,8 @@ namespace Storylog.Migrations
                 name: "Project",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Active = table.Column<bool>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: false),
@@ -37,7 +39,8 @@ namespace Storylog.Migrations
                 name: "Story",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreatedBy = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
@@ -45,7 +48,7 @@ namespace Storylog.Migrations
                     ModifiedBy = table.Column<string>(nullable: true),
                     ModifiedOn = table.Column<DateTime>(nullable: false),
                     Priority = table.Column<int>(nullable: false),
-                    ProjectId = table.Column<Guid>(nullable: false),
+                    ProjectId = table.Column<long>(nullable: false),
                     Status = table.Column<int>(nullable: false),
                     Title = table.Column<string>(nullable: false)
                 },
@@ -63,14 +66,15 @@ namespace Storylog.Migrations
                 name: "Task",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreatedBy = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     ModifiedBy = table.Column<string>(nullable: true),
                     ModifiedOn = table.Column<DateTime>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    StoryId = table.Column<Guid>(nullable: false),
+                    StoryId = table.Column<long>(nullable: false),
                     Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

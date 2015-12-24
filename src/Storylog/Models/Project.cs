@@ -6,7 +6,7 @@ namespace Storylog.Models
 {
     public class Project
     {
-        public Guid Id { get; set; }
+        public long Id { get; set; }
 
         [Required]
         public string Name { get; set; }
